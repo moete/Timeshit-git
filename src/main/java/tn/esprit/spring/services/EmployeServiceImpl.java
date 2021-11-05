@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,6 +22,7 @@ import tn.esprit.spring.repository.TimesheetRepository;
 
 @Service
 public class EmployeServiceImpl implements IEmployeService {
+	public static final Logger logger = Logger.getLogger(EmployeServiceImpl.class);
 
 	@Autowired
 	EmployeRepository employeRepository;
@@ -137,25 +139,49 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	//chiheb
 	public void deleteAllContratJPQL() {
+		logger.info("In deleteAllContratJPQL():");
+		logger.debug("debut de deleteAllContratJPQL: " );
+		
          employeRepository.deleteAllContratJPQL();
+         
+         logger.info("out of deleteAllContratJPQL()");
+			logger.debug("contrat: "  + " supprime avec succé");
+
 	}
 
 
 	public float getSalaireByEmployeIdJPQL(int employeId) {
+		logger.info("In getSalaireByEmployeIdJPQL():");
+		logger.debug("debut de getSalaireByEmployeIdJPQL: " );
 		return employeRepository.getSalaireByEmployeIdJPQL(employeId);
+		
+		
 	}
 
 	public Double getSalaireMoyenByDepartementId(int departementId) {
+		logger.info("In getSalaireMoyenByDepartementId():");
+		logger.debug("debut de getSalaireMoyenByDepartementId: " );
+		
 		return employeRepository.getSalaireMoyenByDepartementId(departementId);
+		
 	}
 	
 	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut,
 			Date dateFin) {
+		
+		logger.info("In getTimesheetsByMissionAndDate():");
+		logger.debug("debut de getTimesheetsByMissionAndDate: " );
 		return timesheetRepository.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
+		
+	
 	}
 
 	public List<Employe> getAllEmployes() {
+		logger.info("In getAllEmployes():");
+		logger.debug("debut de getAllEmployes: " );
 				return (List<Employe>) employeRepository.findAll();
+				
+				
 	}
 
 }
