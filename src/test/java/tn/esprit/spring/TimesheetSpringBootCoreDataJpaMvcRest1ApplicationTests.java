@@ -8,6 +8,7 @@ import org.junit.Assert;
 
 
 import org.junit.runner.RunWith;
+import org.omg.CORBA.portable.ValueOutputStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -19,6 +20,7 @@ import tn.esprit.spring.repository.EntrepriseRepository;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.services.IEntrepriseService;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.transaction.Transactional;
@@ -33,19 +35,11 @@ public class TimesheetSpringBootCoreDataJpaMvcRest1ApplicationTests {
     @Autowired
     private IEmployeService servEmploye;
     
-    @Autowired
-    private EntrepriseRepository repEnt;
 
-    @Transactional
-    @Test
-    public void testAjouterEntreprise(){
-        Entreprise ent= new Entreprise("telecom tunis","telelcomunication");
-        int id=servEntreprise.ajouterEntreprise((ent));
 
-        Assert.assertNotNull(repEnt.findById(id).get());
-    }
     
     
+  
     @Transactional
     @Test
     public void getSalaireByEmployeIdJPQL(){
@@ -59,20 +53,17 @@ public class TimesheetSpringBootCoreDataJpaMvcRest1ApplicationTests {
     @Test
     public void getSalaireMoyenByDepartementId(){
 
-
+    	
         Assert.assertNotNull(servEmploye.getSalaireMoyenByDepartementId(1));
     }
 
     @Transactional
     @Test
     public void getTimesheetsByMissionAndDate(){
-    	Employe emp=new Employe();
-    	Mission mis=new Mission();
-
-        Assert.assertNotNull(servEmploye.getTimesheetsByMissionAndDate(emp,mis,new Date(),new Date()));
-        
+    	
+    	Assert.assertNotNull(servEmploye.getSalaireMoyenByDepartementId(1));
     }
-    
+   
     @Transactional
     @Test
     public void getAllEmployes(){

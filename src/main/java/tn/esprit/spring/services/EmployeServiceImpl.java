@@ -33,7 +33,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	TimesheetRepository timesheetRepository;
 
-	//firas chbinou
+	
 	public int ajouterEmploye(Employe employe) {
 		employeRepository.save(employe);
 		return employe.getId();
@@ -98,14 +98,12 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 
-	//fares
+
 	public void deleteEmployeById(int employeId)
 	{
 		Employe employe = employeRepository.findById(employeId).get();
 
-		//Desaffecter l'employe de tous les departements
-		//c'est le bout master qui permet de mettre a jour
-		//la table d'association
+		
 		for(Departement dep : employe.getDepartements()){
 			dep.getEmployes().remove(employe);
 		}
@@ -136,8 +134,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		employeRepository.mettreAjourEmailByEmployeIdJPQL(email, employeId);
 
 	}
-
-	//chiheb
+//ee
 	public void deleteAllContratJPQL() {
 		logger.info("In deleteAllContratJPQL():");
 		logger.debug("debut de deleteAllContratJPQL: " );
