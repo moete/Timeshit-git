@@ -939,3 +939,5 @@ Caused by: java.sql.SQLSyntaxErrorException: Unknown database 'timesheet'
 2021-11-08 20:16:49.306  INFO 20552 --- [main] o.h.h.i.QueryTranslatorFactoryInitiator  : HHH000397: Using ASTQueryTranslatorFactory
 2021-11-08 20:16:49.640  INFO 20552 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
 2021-11-08 20:16:49.678  WARN 20552 --- [main] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-08 20:16:49.837  INFO 20552 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8081 (http) with context path '/SpringMVC'
+2021-11-08 20:16:49.839  INFO 20552 --- [main] SpringBootCoreDataJpaMvcRest1Application : Started TimesheetSpringBootCoreDataJpaMvcRest1Application in 3.833 seconds (JVM running for 4.413)
